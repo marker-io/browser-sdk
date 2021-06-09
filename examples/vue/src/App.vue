@@ -65,8 +65,6 @@ export default {
         destination: this.destinationId,
       });
 
-      // IMPROVEMENT: dont put widget on data()
-
       const events = [
         'load',
         'loaderror',
