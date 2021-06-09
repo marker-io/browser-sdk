@@ -46,6 +46,9 @@ export default {
   data() {
     return {
       widget: null,
+
+      // You can find your destination ID in your Marker.io account.
+      // Learn mode: https://github.com/marker-io/browser-sdk/tree/master/examples/vue#getting-your-destination-id
       destinationId: '',
 
       reporterInfo: {
@@ -60,7 +63,6 @@ export default {
   methods: {
     async loadMarkerSDK() {
       // Load widget using the Marker.io SDK
-      // You can find your destination ID in your Marker.io account.
       this.widget = await markerSDK.loadWidget({
         destination: this.destinationId,
       });
