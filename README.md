@@ -198,7 +198,7 @@ Triggers if an error occurs while submitting feedback.
 
 Triggers when the user discards a feedback by clicking on the "Close" button in the widget.
 
-## Identify reporters
+## 🙋‍♂️ Identify reporters
 
 Whenever your application knows about your reporters' identity, you should provide that information through the Marker.io snippet code.
 
