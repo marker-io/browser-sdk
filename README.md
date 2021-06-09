@@ -50,7 +50,7 @@
 - Inject Marker.io widget in your web app
 - Full control of the widget (hide / show, trigger captures, ...)
 - Identify reporters
-- Inject custom metadata in issues
+- Inject custom metadata in issues _(Coming soon)_
 
 ## Installation
 
