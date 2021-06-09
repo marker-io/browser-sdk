@@ -66,7 +66,7 @@ import markerSDK from '@marker.io/browser';
 const widget = await markerSDK.loadWidget({ destination: 'abcd1234567890' });
 ```
 
-## API
+## ⚙️ API
 
 ### `widget.show()`
 
@@ -146,7 +146,7 @@ widget.setReporter({
 
 Unloads and cleans up Marker.io SDK and all used resources.
 
-## Events
+## 🚨 Events
 
 Marker.io exposes a variety of events that can be listened to using the methods described below.
 
@@ -212,7 +212,7 @@ Identifying your reporters is dead-simple: all you need to do is to provide thei
 
 ```javascript
 const widget = await markerSDK.loadWidget({
-  destination: "<DESTINATION ID>",
+  destination: '<DESTINATION ID>',
 
   reporter: {
     email: 'john@clientwebsite.com',
