@@ -1,0 +1,20 @@
+body,
+form,
+input,
+button {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.hide {
+  display: none !important;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+
+  > * + * {
+    margin-top: 10px;
+  }
+}

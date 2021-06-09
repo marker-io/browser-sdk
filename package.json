@@ -1,0 +1,32 @@
+{
+  "name": "@marker.io/browser",
+  "version": "0.0.4-beta",
+  "description": "Marker.io browser SDK",
+  "projectMeta": {
+    "provider": {
+      "name": "Marker.io",
+      "url": "https://marker.io/"
+    },
+    "platforms": {
+      "browser": "./src/index.js"
+    }
+  },
+  "keywords": [
+    "bug reporting",
+    "feedback widget",
+    "markerio"
+  ],
+  "main": "src/index.js",
+  "scripts": {
+    "release:patch": "npm version patch && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:major": "npm version major && npm publish"
+  },
+  "author": "Marker.io",
+  "license": "MIT",
+  "homepage": "https://github.com/marker-io/browser#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marker-io/browser"
+  }
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marker.io DEMO</title>
+
+    <link rel="stylesheet" type="text/css" href="main.scss">
+  </head>
+
+  <body>
+    <form class="js-load-sdk-form">
+      <input type="text" placeholder="Destination ID" class="js-destination-id-input" />
+      <button class="js-load-sdk">Load SDK</button>
+    </form>
+
+    <div class="column hide js-sdk-loaded">
+      <strong>SDK loaded! 🚀</strong>
+
+      <div class="actions">
+        <button class="js-widget-show-btn">widget.show()</button>
+        <button class="js-widget-hide-btn">widget.hide()</button>
+        <button class="js-widget-capture-btn">widget.capture()</button>
+        <button class="js-widget-unload-btn">widget.unload()</button>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
