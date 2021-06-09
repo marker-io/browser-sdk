@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="300" height="60" src="./marker.io-logo.svg" />
+  <a href="https://marker.io" target="_blank"><img width="300" height="60" src="./marker.io-logo.svg" /></a>
 
   <p>
     <h3 align="center">
