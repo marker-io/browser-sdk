@@ -66,7 +66,11 @@ module.exports = {
         resolve(window.Marker);
       });
 
-      script.onerror = (err) => reject(err);
+      sdk.on('loaderror', (error) => {
+        reject(error);
+      });
+
+      script.onerror = (error) => reject(error);
     });
   },
 };
