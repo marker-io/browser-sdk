@@ -49,7 +49,7 @@
 
 - Inject Marker.io widget in your web app
 - Full control of the widget (hide / show, trigger captures, ...)
-- Identify reporters
+- Identify reporters [How to](#identify-reporters)
 - Inject custom metadata in issues _(Coming soon)_
 
 ## Installation
@@ -197,6 +197,40 @@ Triggers if an error occurs while submitting feedback.
 ### `'feedbackdiscarded'`
 
 Triggers when the user discards a feedback by clicking on the "Close" button in the widget.
+
+## Identify reporters
+
+Whenever your application knows about your reporters' identity, you should provide that information through the Marker.io snippet code.
+
+### Why?
+
+The reporting experience will be much better for your guests as they will not be prompted to provide their contact information while reporting their issues.
+
+### Method 1: passing reporter info while loading your widget
+
+Identifying your reporters is dead-simple: all you need to do is to provide their reporter information in the configuration object of your snippet code.
+
+```javascript
+const widget = await markerSDK.loadWidget({
+  destination: "<DESTINATION ID>",
+
+  reporter: {
+    email: 'john@clientwebsite.com',
+    fullName: 'John Smith',
+  },
+});
+```
+
+### Method 2: set reporter info using `widget.setReporter()`
+
+```javascript
+widget.setReporter({
+  reporter: {
+    email: 'john@clientwebsite.com',
+    fullName: 'John Smith',
+  },
+});
+```
 
 ## Support
 
