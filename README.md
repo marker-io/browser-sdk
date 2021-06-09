@@ -34,8 +34,8 @@
 - [Examples](#examples)
 - [Features](#features)
 - [Installation](#installation)
-- [API docs](#api)
-- [Events](#events)
+- [API docs](#%EF%B8%8F-api)
+- [Events](#-events)
 - [Support](#support)
 - [License](#license)
 
