@@ -2,7 +2,7 @@
   "name": "marker-io-sdk-example-vanilla",
   "version": "0.1.0",
   "scripts": {
-    "start": "parcel serve src/index.html"
+    "serve": "parcel serve src/index.html --port 8080"
   },
   "browserslist": [
     "last 2 Chrome versions"
