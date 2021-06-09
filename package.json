@@ -27,6 +27,6 @@
   "homepage": "https://github.com/marker-io/browser#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marker-io/browser"
+    "url": "git+https://github.com/marker-io/browser-sdk"
   }
 }
