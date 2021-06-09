@@ -225,10 +225,8 @@ const widget = await markerSDK.loadWidget({
 
 ```javascript
 widget.setReporter({
-  reporter: {
-    email: 'john@clientwebsite.com',
-    fullName: 'John Smith',
-  },
+  email: 'john@clientwebsite.com',
+  fullName: 'John Smith',
 });
 ```
 
