@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://marker.io" target="_blank"><img width="300" height="60" src="./marker.io-logo.svg" /></a>
+  <a href="https://marker.io/?utm_source=npm" target="_blank"><img width="300" height="60" src="./marker.io-logo.svg" /></a>
 
   <p>
     <h3 align="center">
@@ -19,11 +19,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://www.marker.io/">Website</a>
+    <a href="https://marker.io/?utm_source=npm">Website</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="https://help.marker.io/en/collections/2533894-widget">Docs</a>
+    <a href="https://help.marker.io/en/collections/2533894-widget?utm_source=npm">Docs</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="https://marker.io/blog">Blog</a>
+    <a href="https://marker.io/blog?utm_source=npm">Blog</a>
   </h3>
 </div>
 
