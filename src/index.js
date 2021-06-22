@@ -56,7 +56,7 @@ module.exports = {
 
     const script = document.createElement('script');
     script.async = 1;
-    script.src = 'https://edge.marker.io/latest/shim.js';
+    script.src = params.customShimUrl || 'https://edge.marker.io/latest/shim.js';
 
     const anchorScript = document.getElementsByTagName('script')[0];
     anchorScript.parentNode.insertBefore(script, anchorScript);
