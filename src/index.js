@@ -5,7 +5,7 @@
 module.exports = {
   loadWidget(params) {
     // Warn if unknown params are provided
-    const knownParams = ['destination', 'reporter'];
+    const knownParams = ['destination', 'reporter', 'customShimUrl', 'customData'];
 
     Object.keys(params).forEach((paramName) => {
       if (!knownParams.includes(paramName)) {
@@ -14,19 +14,25 @@ module.exports = {
     });
 
     // Extract params
-    const { destination, reporter } = params;
+    const { destination, reporter, customData } = params;
 
     if (typeof destination !== 'string') {
       throw new Error('destination must be a string');
     }
 
+    if ('customData' in params && typeof customData !== 'object') {
+      throw new Error('customData must be an object');
+    }
+
     if (window.Marker) {
-      return window.Marker;
+      // Only one Marker.io widget can be loaded at a time
+      window.Marker.unload();
     }
 
     window.markerConfig = {
       destination,
       reporter,
+      customData,
     };
 
     const __cs = [];
