@@ -1,6 +1,6 @@
 {
   "name": "@marker.io/browser",
-  "version": "0.9.1-beta",
+  "version": "0.9.1",
   "description": "Marker.io browser SDK",
   "projectMeta": {
     "provider": {
