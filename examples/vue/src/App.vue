@@ -30,7 +30,7 @@
       </form>
 
       <form class="form panel" @submit.prevent="updateCustomData">
-        <textarea class="code" v-model="customDataRaw"></textarea>
+        <textarea class="code" v-model="customDataRaw" placeholder="Paste JSON"></textarea>
 
         <button type="submit">widget.setCustomData</button>
 
