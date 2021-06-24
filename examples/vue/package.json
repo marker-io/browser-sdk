@@ -6,7 +6,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@marker.io/browser": "0.0.4-beta",
+    "@marker.io/browser": "../../",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },

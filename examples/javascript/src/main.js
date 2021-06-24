@@ -21,6 +21,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
     widget = await markerSDK.loadWidget({
       destination: destinationIdInput.value,
+
+      customData: {
+        storeId: 123,
+        storeName: 'Green Fruits Store',
+      },
     });
 
     sdkLoaded.classList.remove('hide');

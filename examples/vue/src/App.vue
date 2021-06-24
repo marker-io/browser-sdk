@@ -29,6 +29,16 @@
         <button type="submit">widget.setReporter</button>
       </form>
 
+      <form class="form panel" @submit.prevent="updateCustomData">
+        <textarea class="code" v-model="customDataRaw"></textarea>
+
+        <button type="submit">widget.setCustomData</button>
+
+        <div class="error" v-if="customDataInvalid">
+          Invalid JSON format
+        </div>
+      </form>
+
       <div class="form panel">
         <label for="event-log">Event log</label>
         <textarea id="event-log" readonly v-model="eventLog" class="event-log"></textarea>
@@ -57,6 +67,10 @@ export default {
       },
 
       eventLog: '',
+
+      customDataRaw: '',
+      customDataObject: {},
+      customDataInvalid: false,
     };
   },
 
@@ -65,6 +79,8 @@ export default {
       // Load widget using the Marker.io SDK
       this.widget = await markerSDK.loadWidget({
         destination: this.destinationId,
+
+        customShimUrl: 'https://localhost:1234/shim.js',
       });
 
       const events = [
@@ -94,6 +110,17 @@ export default {
 
     updateReporterInfo() {
       this.widget.setReporter(this.reporterInfo);
+    },
+
+    updateCustomData() {
+      try {
+        this.customDataObject = JSON.parse(this.customDataRaw);
+        this.customDataInvalid = false;
+      } catch {
+        this.customDataInvalid = true;
+      }
+
+      this.widget.setCustomData(this.customDataObject);
     },
   },
 
@@ -190,5 +217,13 @@ body {
 
 .event-log {
   height: 300px;
+}
+
+.code {
+  font-family: monospace;
+}
+
+.error {
+  color: #f03e3e;
 }
 </style>
