@@ -79,8 +79,6 @@ export default {
       // Load widget using the Marker.io SDK
       this.widget = await markerSDK.loadWidget({
         destination: this.destinationId,
-
-        customShimUrl: 'https://localhost:1234/shim.js',
       });
 
       const events = [
