@@ -230,6 +230,43 @@ widget.setReporter({
 });
 ```
 
+## ⚙️ Custom metadata
+
+While Marker.io automatically captures various metadata about the issue (page URL, browser context, console logs, …), it is also possible to pass **custom metadata** to your issues using the SDK.
+
+For example, this can be useful to help developers debug issues by **adding more details** about the current state of the application.
+
+**Supported types** of custom metadata:
+
+- number
+- boolean
+- strings
+- arrays
+- objects
+
+### Method 1: passing custom metadata while loading your widget
+
+```javascript
+const widget = await markerSDK.loadWidget({
+  destination: '<DESTINATION ID>',
+
+  customData: {
+    storeId: 123,
+    storeName: 'Organic Fruits',
+  },
+});
+```
+
+### Method 2: set custom metadata using `widget.setCustomData()`
+
+```javascript
+widget.setCustomData({
+  product: 'Orange Juice',
+  price: 3.99,
+  stock: 130,
+});
+```
+
 ## Support
 
 Need help integrating Marker.io with your web app? Feel free to contact us via your Marker.io account.

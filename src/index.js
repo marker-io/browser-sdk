@@ -48,6 +48,7 @@ module.exports = {
       'reload',
       'isExtensionInstalled',
       'setReporter',
+      'setCustomData',
       'on',
       'off',
     ]) {
