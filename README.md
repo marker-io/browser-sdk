@@ -234,7 +234,7 @@ widget.setReporter({
 
 While Marker.io automatically captures various metadata about the issue (page URL, browser context, console logs, …), it is also possible to pass **custom metadata** to your issues using the SDK.
 
-For example, this can be useful to help developers debug reported issues by **adding more details** about the current state of the application.
+For example, this can be useful to help developers debug issues by **adding more details** about the current state of the application.
 
 **Supported types** of custom metadata:
 
