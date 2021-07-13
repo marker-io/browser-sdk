@@ -33,6 +33,7 @@ export default {
       destination,
       reporter,
       customData,
+      source: 'browser-sdk',
     };
 
     const __cs = [];
