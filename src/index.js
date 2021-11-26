@@ -2,7 +2,7 @@
  * Marker.io - https://marker.io
  * Browser loader for the Marker.io SDK
  */
-module.exports = {
+export default {
   loadWidget(params) {
     // Warn if unknown params are provided
     const knownParams = ['destination', 'reporter', 'customShimUrl', 'customData'];
