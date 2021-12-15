@@ -51,7 +51,8 @@
 - Full control of the widget (hide / show, trigger captures, ...)
 - Identify reporters ([Learn more](#%EF%B8%8F-identify-reporters))
 - Inject custom metadata in issues ([Learn more](#%EF%B8%8F-custom-metadata))
-- Silent mode
+- Silent mode ([Learn more](#-enabling-markerio-silent-mode))
+- Delayed server-side capture ([Learn more](#-delayed-capture-using-server-side-capture))
 
 ## Installation
 
