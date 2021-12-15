@@ -54,10 +54,10 @@ export default {
       destination,
       reporter,
       customData,
-      source: 'browser-sdk',
       silent,
       ssr,
       extension,
+      source: 'browser-sdk',
     };
 
     const __cs = [];
