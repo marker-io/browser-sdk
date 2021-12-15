@@ -5,7 +5,16 @@
 export default {
   loadWidget(params) {
     // Warn if unknown params are provided
-    const knownParams = ['destination', 'reporter', 'customShimUrl', 'customData'];
+    const knownParams = [
+      'destination',
+      'reporter',
+      'customShimUrl',
+      'customData',
+      'silent',
+      'source',
+      'ssr',
+      'extension',
+    ];
 
     Object.keys(params).forEach((paramName) => {
       if (!knownParams.includes(paramName)) {
@@ -14,7 +23,7 @@ export default {
     });
 
     // Extract params
-    const { destination, reporter, customData } = params;
+    const { destination, reporter, customData, silent, ssr, extension } = params;
 
     if (typeof destination !== 'string') {
       throw new Error('destination must be a string');
@@ -22,6 +31,18 @@ export default {
 
     if ('customData' in params && typeof customData !== 'object') {
       throw new Error('customData must be an object');
+    }
+
+    if ('silent' in params && typeof silent !== 'boolean') {
+      throw new Error('silent must be a boolean');
+    }
+
+    if ('ssr' in params && typeof ssr !== 'object') {
+      throw new Error('ssr must be a boolean');
+    }
+
+    if ('extension' in params && typeof extension !== 'boolean' && typeof extension !== 'object') {
+      throw new Error('extension must be a boolean/object');
     }
 
     if (window.Marker) {
@@ -34,6 +55,9 @@ export default {
       reporter,
       customData,
       source: 'browser-sdk',
+      silent,
+      ssr,
+      extension,
     };
 
     const __cs = [];
