@@ -50,7 +50,8 @@
 - Inject Marker.io widget in your web app
 - Full control of the widget (hide / show, trigger captures, ...)
 - Identify reporters ([Learn more](#%EF%B8%8F-identify-reporters))
-- Inject custom metadata in issues _(Coming soon)_
+- Inject custom metadata in issues ([Learn more](#%EF%B8%8F-custom-metadata))
+- Silent mode
 
 ## Installation
 
@@ -264,6 +265,39 @@ widget.setCustomData({
   product: 'Orange Juice',
   price: 3.99,
   stock: 130,
+});
+```
+
+## 👻 Enabling Marker.io silent mode
+
+By default, Marker.io will log some useful information in the console to help you identify configuration problems and better understand how it functions.
+
+However, in certain situations you may want to disable them all together so that it doesn't add noise to your recorded console logs.
+
+To do so, you will need to enable silent mode directly inside your **snippet code configuration**:
+
+```javascript
+const widget = await markerSDK.loadWidget({
+  destination: '<DESTINATION ID>',
+
+  silent: true, // <~ Enable silent mode
+});
+```
+
+## 🕒 Delayed capture using server-side capture
+
+Delay the server-side capture so that your CSS animations can run before the screenshot is taken.
+
+You can enable delayed capture adding a special parameter in your snippet code configuration:
+
+```javascript
+const widget = await markerSDK.loadWidget({
+  destination: '<DESTINATION ID>',
+
+  // Add the following to delay the server-side rendering
+  ssr: {
+    renderDelay: 3000, // 0 - 15000 (ms)
+  },
 });
 ```
 
