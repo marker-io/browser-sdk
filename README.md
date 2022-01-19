@@ -53,6 +53,7 @@
 - Inject custom metadata in issues ([Learn more](#%EF%B8%8F-custom-metadata))
 - Silent mode ([Learn more](#-enabling-markerio-silent-mode))
 - Delayed server-side capture ([Learn more](#-delayed-capture-using-server-side-capture))
+- Disabling keyboard shortcuts
 
 ## Installation
 
@@ -299,6 +300,19 @@ const widget = await markerSDK.loadWidget({
   ssr: {
     renderDelay: 3000, // 0 - 15000 (ms)
   },
+});
+```
+
+## ⌨️ Disabling keyboard shortcuts
+
+In some particular cases, our keyboard shortcuts may conflict with your web app, you can easily disable all our shortcuts by passing a specific property in the JavaScript snippet configuration:
+
+```javascript
+const widget = await markerSDK.loadWidget({
+  destination: '<DESTINATION ID>',
+
+  // Toggles off all keyboard shortcuts
+  keyboardShortcuts: false,
 });
 ```
 

@@ -14,6 +14,7 @@ export default {
       'source',
       'ssr',
       'extension',
+      'keyboardShortcuts',
     ];
 
     Object.keys(params).forEach((paramName) => {
@@ -23,7 +24,7 @@ export default {
     });
 
     // Extract params
-    const { destination, reporter, customData, silent, ssr, extension } = params;
+    const { destination, reporter, customData, silent, ssr, extension, keyboardShortcuts } = params;
 
     if (typeof destination !== 'string') {
       throw new Error('destination must be a string');
@@ -45,6 +46,10 @@ export default {
       throw new Error('extension must be a boolean/object');
     }
 
+    if ('keyboardShortcuts' in params && typeof keyboardShortcuts !== 'boolean') {
+      throw new Error('keyboardShortcuts must be a boolean');
+    }
+
     if (window.Marker) {
       // Only one Marker.io widget can be loaded at a time
       window.Marker.unload();
@@ -57,6 +62,7 @@ export default {
       silent,
       ssr,
       extension,
+      keyboardShortcuts,
       source: 'browser-sdk',
     };
 
