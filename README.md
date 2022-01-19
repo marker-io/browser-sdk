@@ -53,7 +53,7 @@
 - Inject custom metadata in issues ([Learn more](#%EF%B8%8F-custom-metadata))
 - Silent mode ([Learn more](#-enabling-markerio-silent-mode))
 - Delayed server-side capture ([Learn more](#-delayed-capture-using-server-side-capture))
-- Disabling keyboard shortcuts
+- Disabling keyboard shortcuts ([Learn more](#%EF%B8%8F-disabling-keyboard-shortcuts))
 
 ## Installation
 
