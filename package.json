@@ -17,6 +17,7 @@
     "markerio"
   ],
   "main": "src/index.js",
+  "types": "src/index.d.ts",
   "scripts": {
     "release:patch": "npm version patch && npm publish",
     "release:minor": "npm version minor && npm publish",
