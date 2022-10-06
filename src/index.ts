@@ -2,8 +2,63 @@
  * Marker.io - https://marker.io
  * Browser loader for the Marker.io SDK
  */
-export default {
-  loadWidget(params) {
+
+// * Typescript definitions
+export type MarkerWidgetParams = {
+  destination: string;
+  reporter?: MarkerReporter;
+  customShimUrl?: string;
+  customData?: Record<string, string>;
+  silent?: boolean;
+  source?: string;
+  ssr?: Record<string, string>;
+  extension?: boolean | Record<string, string>;
+  keyboardShortcuts?: boolean;
+};
+
+export type MarkerReporter = {
+  email: string;
+  fullName: string;
+};
+
+type MarkerEventName =
+  | 'load'
+  | 'loaderror'
+  | 'beforeunload'
+  | 'show'
+  | 'hide'
+  | 'capture'
+  | 'feedbackbeforesend'
+  | 'feedbacksent'
+  | 'feedbackerror'
+  | 'feedbackdiscarded';
+
+export type MarkerSdk = {
+  show: () => void;
+  hide: () => void;
+  isVisible: () => boolean;
+  capture: (mode: 'fullscreen' | 'advanced') => Promise<void>;
+  cancelCapture: () => void;
+  isExtensionInstalled: () => Promise<boolean>;
+  setReporter: (reporter: MarkerReporter) => void;
+  unload: () => void;
+  on: (eventName: MarkerEventName, listener: () => void) => void;
+};
+
+export type MarkerSdkLoader = {
+  loadWidget: (params: MarkerWidgetParams) => Promise<MarkerSdk>;
+};
+
+declare global {
+  interface Window {
+    Marker: MarkerSdk;
+    markerConfig: MarkerWidgetParams;
+  }
+}
+
+// * SDK Loader implementation
+const markerSDK: MarkerSdkLoader = {
+  loadWidget(params: MarkerWidgetParams) {
     // Warn if unknown params are provided
     const knownParams = [
       'destination',
@@ -66,8 +121,10 @@ export default {
       source: 'browser-sdk',
     };
 
-    const __cs = [];
-    const sdk = { __cs };
+    const __cs: Array<any> = [];
+
+    // @ts-ignore
+    const sdk: MarkerSdk = { __cs };
 
     for (const methodName of [
       'show',
@@ -83,27 +140,35 @@ export default {
       'on',
       'off',
     ]) {
+      // @ts-ignore
       sdk[methodName] = function () {
         const t = Array.prototype.slice.call(arguments);
         t.unshift(methodName);
-        __cs.push(t);
+        __cs.push(t as never);
       };
     }
 
     window.Marker = sdk;
 
     const script = document.createElement('script');
-    script.async = 1;
+    script.async = true;
     script.src = params.customShimUrl || 'https://edge.marker.io/latest/shim.js';
 
     const anchorScript = document.getElementsByTagName('script')[0];
-    anchorScript.parentNode.insertBefore(script, anchorScript);
+
+    if (anchorScript.parentNode) {
+      anchorScript.parentNode.insertBefore(script, anchorScript);
+    } else {
+      (document.body || document.head).appendChild(script);
+    }
 
     return new Promise((resolve, reject) => {
+      // @ts-ignore
       sdk.on('load', () => {
         resolve(window.Marker);
       });
 
+      // @ts-ignore
       sdk.on('loaderror', (error) => {
         reject(error);
       });
@@ -112,3 +177,5 @@ export default {
     });
   },
 };
+
+export default markerSDK;
