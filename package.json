@@ -1,7 +1,15 @@
 {
   "name": "@marker.io/browser",
-  "version": "0.12.0",
+  "version": "0.13.0-beta.0",
   "description": "Marker.io browser SDK",
+  "keywords": [
+    "bug reporting",
+    "feedback widget",
+    "markerio"
+  ],
+  "author": "Marker.io",
+  "license": "MIT",
+  "homepage": "https://github.com/marker-io/browser#readme",
   "projectMeta": {
     "provider": {
       "name": "Marker.io",
@@ -11,22 +19,38 @@
       "browser": "./src/index.js"
     }
   },
-  "keywords": [
-    "bug reporting",
-    "feedback widget",
-    "markerio"
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/esm/types/index.d.ts",
+        "default": "./lib/esm/index.mjs"
+      },
+      "require": {
+        "types": "./lib/cjs/types/index.d.ts",
+        "default": "./lib/cjs/index.js"
+      }
+    }
+  },
+  "main": "./lib/cjs/index.js",
+  "types": "./lib/cjs/types/index.d.ts",
+  "files": [
+    "lib/**/*"
   ],
-  "main": "src/index.js",
   "scripts": {
     "release:patch": "npm version patch && npm publish",
     "release:minor": "npm version minor && npm publish",
-    "release:major": "npm version major && npm publish"
+    "release:major": "npm version major && npm publish",
+    "clean": "rm -rf ./lib",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.mjs",
+    "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
+    "prepack": "npm run build"
   },
-  "author": "Marker.io",
-  "license": "MIT",
-  "homepage": "https://github.com/marker-io/browser#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/marker-io/browser-sdk"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.4"
   }
 }
