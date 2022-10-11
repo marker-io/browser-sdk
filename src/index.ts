@@ -71,6 +71,7 @@ const markerSDK: MarkerSdkLoader = {
       'ssr',
       'extension',
       'keyboardShortcuts',
+      'beta',
     ];
 
     Object.keys(params).forEach((paramName) => {
