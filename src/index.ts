@@ -14,6 +14,7 @@ export type MarkerWidgetParams = {
   ssr?: Record<string, string>;
   extension?: boolean | Record<string, string>;
   keyboardShortcuts?: boolean;
+  beta?: Object;
 };
 
 export type MarkerReporter = {
@@ -70,6 +71,7 @@ const markerSDK: MarkerSdkLoader = {
       'ssr',
       'extension',
       'keyboardShortcuts',
+      'beta',
     ];
 
     Object.keys(params).forEach((paramName) => {
@@ -79,7 +81,8 @@ const markerSDK: MarkerSdkLoader = {
     });
 
     // Extract params
-    const { destination, reporter, customData, silent, ssr, extension, keyboardShortcuts } = params;
+    const { destination, reporter, customData, silent, ssr, extension, keyboardShortcuts, beta } =
+      params;
 
     if (typeof destination !== 'string') {
       throw new Error('destination must be a string');
@@ -101,6 +104,10 @@ const markerSDK: MarkerSdkLoader = {
       throw new Error('extension must be a boolean/object');
     }
 
+    if ('beta' in params && typeof beta !== 'object') {
+      throw new Error('extension must be a boolean/object');
+    }
+
     if ('keyboardShortcuts' in params && typeof keyboardShortcuts !== 'boolean') {
       throw new Error('keyboardShortcuts must be a boolean');
     }
@@ -118,6 +125,7 @@ const markerSDK: MarkerSdkLoader = {
       ssr,
       extension,
       keyboardShortcuts,
+      beta,
       source: 'browser-sdk',
     };
 

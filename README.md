@@ -21,7 +21,7 @@
   <h3>
     <a href="https://marker.io/?utm_source=npm">Website</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="https://help.marker.io/en/collections/2533894-widget?utm_source=npm">Docs</a>
+    <a href="https://marker.io/browser-sdk-docs?utm_source=npm">Docs</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
     <a href="https://marker.io/blog?utm_source=npm">Blog</a>
   </h3>
