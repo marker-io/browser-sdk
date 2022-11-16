@@ -66,7 +66,7 @@
 ```javascript
 import markerSDK from '@marker.io/browser';
 
-const widget = await markerSDK.loadWidget({ destination: 'abcd1234567890' });
+const widget = await markerSDK.loadWidget({ project: 'abcd1234567890' });
 ```
 
 ## ⚙️ API
@@ -215,7 +215,7 @@ Identifying your reporters is dead-simple: all you need to do is to provide thei
 
 ```javascript
 const widget = await markerSDK.loadWidget({
-  destination: '<DESTINATION ID>',
+  project: '<PROJECT ID>',
 
   reporter: {
     email: 'john@clientwebsite.com',
@@ -251,7 +251,7 @@ For example, this can be useful to help developers debug issues by **adding more
 
 ```javascript
 const widget = await markerSDK.loadWidget({
-  destination: '<DESTINATION ID>',
+  project: '<PROJECT ID>',
 
   customData: {
     storeId: 123,
@@ -280,7 +280,7 @@ To do so, you will need to enable silent mode directly inside your **snippet cod
 
 ```javascript
 const widget = await markerSDK.loadWidget({
-  destination: '<DESTINATION ID>',
+  project: '<PROJECT ID>',
 
   silent: true, // <~ Enable silent mode
 });
@@ -294,7 +294,7 @@ You can enable delayed capture adding a special parameter in your snippet code c
 
 ```javascript
 const widget = await markerSDK.loadWidget({
-  destination: '<DESTINATION ID>',
+  project: '<PROJECT ID>',
 
   // Add the following to delay the server-side rendering
   ssr: {
@@ -309,7 +309,7 @@ In some particular cases, our keyboard shortcuts may conflict with your web app,
 
 ```javascript
 const widget = await markerSDK.loadWidget({
-  destination: '<DESTINATION ID>',
+  project: '<PROJECT ID>',
 
   // Toggles off all keyboard shortcuts
   keyboardShortcuts: false,

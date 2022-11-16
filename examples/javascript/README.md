@@ -18,14 +18,14 @@ npm run serve
 
 Finally, navigate to http://localhost:8080 to open your running development server.
 
-## Getting your destination ID
+## Getting your project ID
 
-The destination ID is an immutable value that allows linking Marker.io to your destination widget.
+The project ID is an immutable value that allows linking Marker.io to your project widget.
 
 Get it with these simple steps:
 
 1. Navigate to your Marker.io dashboard at https://app.marker.io
-2. Open a destination, then navigate to its installation settings, choose "Snippet code"
-3. Copy your destination ID from the snippet code itself.
+2. Open a project, then navigate to its installation settings, choose "Snippet code"
+3. Copy your project ID from the snippet code itself.
 
-![How-to](./img/how-to-destination-id.png 'How to get your destination ID')
+![How-to](./img/how-to-project-id.png 'How to get your project ID')

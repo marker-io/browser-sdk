@@ -3,7 +3,7 @@ import markerSDK from '@marker.io/browser';
 window.addEventListener('DOMContentLoaded', () => {
   // DOM elements
   const loadSDKForm = document.querySelector('.js-load-sdk-form');
-  const destinationIdInput = document.querySelector('.js-destination-id-input');
+  const projectIdInput = document.querySelector('.js-project-id-input');
 
   const sdkLoaded = document.querySelector('.js-sdk-loaded');
 
@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
 
     widget = await markerSDK.loadWidget({
-      destination: destinationIdInput.value,
+      project: projectIdInput.value,
 
       customData: {
         storeId: 123,

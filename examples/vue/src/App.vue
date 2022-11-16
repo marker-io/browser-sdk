@@ -7,7 +7,7 @@
     <strong>SDK demo for Vue.js</strong>
 
     <div class="row">
-      <input type="text" placeholder="Destination ID" v-model="destinationId" />
+      <input type="text" placeholder="Project ID" v-model="projectId" />
       <button @click="loadMarkerSDK">Load SDK</button>
     </div>
 
@@ -57,9 +57,9 @@ export default {
     return {
       widget: null,
 
-      // You can find your destination ID in your Marker.io account.
-      // Learn mode: https://github.com/marker-io/browser-sdk/tree/master/examples/vue#getting-your-destination-id
-      destinationId: '',
+      // You can find your project ID in your Marker.io account.
+      // Learn mode: https://github.com/marker-io/browser-sdk/tree/master/examples/vue#getting-your-project-id
+      projectId: '',
 
       reporterInfo: {
         email: null,
@@ -78,7 +78,7 @@ export default {
     async loadMarkerSDK() {
       // Load widget using the Marker.io SDK
       this.widget = await markerSDK.loadWidget({
-        destination: this.destinationId,
+        project: this.projectId,
       });
 
       const events = [
