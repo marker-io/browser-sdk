@@ -1,6 +1,6 @@
 {
   "name": "@marker.io/browser",
-  "version": "0.13.1-beta.1",
+  "version": "0.14.0-beta.0",
   "description": "Marker.io browser SDK",
   "keywords": [
     "bug reporting",
