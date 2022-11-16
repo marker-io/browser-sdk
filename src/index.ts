@@ -5,7 +5,6 @@
 
 // * Typescript definitions
 export type MarkerWidgetParams = {
-  destination: string;
   reporter?: MarkerReporter;
   customShimUrl?: string;
   customData?: Record<string, string>;
@@ -15,6 +14,17 @@ export type MarkerWidgetParams = {
   extension?: boolean | Record<string, string>;
   keyboardShortcuts?: boolean;
   beta?: Object;
+};
+
+/**
+ * @deprecated use "project" parameter instead
+ */
+export type MarkerDestinationWidgetParams = MarkerWidgetParams & {
+  destination: string;
+};
+
+export type MarkerProjectWidgetParams = MarkerWidgetParams & {
+  project: string;
 };
 
 export type MarkerReporter = {
@@ -47,22 +57,25 @@ export type MarkerSdk = {
 };
 
 export type MarkerSdkLoader = {
-  loadWidget: (params: MarkerWidgetParams) => Promise<MarkerSdk>;
+  loadWidget: (
+    params: MarkerDestinationWidgetParams | MarkerProjectWidgetParams,
+  ) => Promise<MarkerSdk>;
 };
 
 declare global {
   interface Window {
     Marker: MarkerSdk;
-    markerConfig: MarkerWidgetParams;
+    markerConfig: MarkerProjectWidgetParams;
   }
 }
 
 // * SDK Loader implementation
 const markerSDK: MarkerSdkLoader = {
-  loadWidget(params: MarkerWidgetParams) {
+  loadWidget(params: MarkerDestinationWidgetParams | MarkerProjectWidgetParams) {
     // Warn if unknown params are provided
     const knownParams = [
       'destination',
+      'project',
       'reporter',
       'customShimUrl',
       'customData',
@@ -81,11 +94,14 @@ const markerSDK: MarkerSdkLoader = {
     });
 
     // Extract params
-    const { destination, reporter, customData, silent, ssr, extension, keyboardShortcuts, beta } =
-      params;
+    const { reporter, customData, silent, ssr, extension, keyboardShortcuts, beta } = params;
 
-    if (typeof destination !== 'string') {
-      throw new Error('destination must be a string');
+    const project =
+      (params as MarkerProjectWidgetParams).project ||
+      (params as MarkerDestinationWidgetParams).destination;
+
+    if (typeof project !== 'string') {
+      throw new Error('project must be a string');
     }
 
     if ('customData' in params && typeof customData !== 'object') {
@@ -118,7 +134,7 @@ const markerSDK: MarkerSdkLoader = {
     }
 
     window.markerConfig = {
-      destination,
+      project,
       reporter,
       customData,
       silent,
