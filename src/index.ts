@@ -14,6 +14,7 @@ export type MarkerWidgetParams = {
   extension?: boolean | Record<string, string>;
   keyboardShortcuts?: boolean;
   beta?: Object;
+  demo?: boolean;
 };
 
 /**
@@ -85,6 +86,7 @@ const markerSDK: MarkerSdkLoader = {
       'extension',
       'keyboardShortcuts',
       'beta',
+      'demo',
     ];
 
     Object.keys(params).forEach((paramName) => {
@@ -94,7 +96,7 @@ const markerSDK: MarkerSdkLoader = {
     });
 
     // Extract params
-    const { reporter, customData, silent, ssr, extension, keyboardShortcuts, beta } = params;
+    const { reporter, customData, silent, ssr, extension, keyboardShortcuts, beta, demo } = params;
 
     const project =
       (params as MarkerProjectWidgetParams).project ||
@@ -128,6 +130,10 @@ const markerSDK: MarkerSdkLoader = {
       throw new Error('keyboardShortcuts must be a boolean');
     }
 
+    if ('demo' in params && typeof demo !== 'boolean') {
+      throw new Error('demo must be a boolean/object');
+    }
+
     if (window.Marker) {
       // Only one Marker.io widget can be loaded at a time
       window.Marker.unload();
@@ -142,6 +148,7 @@ const markerSDK: MarkerSdkLoader = {
       extension,
       keyboardShortcuts,
       beta,
+      demo,
       source: 'browser-sdk',
     };
 
