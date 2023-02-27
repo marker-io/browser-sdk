@@ -10,7 +10,7 @@ export type MarkerWidgetParams = {
   customData?: Record<string, string>;
   silent?: boolean;
   source?: string;
-  ssr?: Record<string, string>;
+  ssr?: Record<string, string | number>;
   extension?: boolean | Record<string, string>;
   keyboardShortcuts?: boolean;
   beta?: Object;
@@ -52,6 +52,7 @@ export type MarkerSdk = {
   capture: (mode: 'fullscreen' | 'advanced') => Promise<void>;
   cancelCapture: () => void;
   isExtensionInstalled: () => Promise<boolean>;
+  setCustomData: (customData?: Record<string, string>) => void;
   setReporter: (reporter: MarkerReporter) => void;
   unload: () => void;
   on: (eventName: MarkerEventName, listener: () => void) => void;
