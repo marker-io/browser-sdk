@@ -6,3 +6,4 @@ lib
 **/.vscode
 .DS_Store
 .tmp
+.idea
