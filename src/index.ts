@@ -15,6 +15,10 @@ export type MarkerWidgetParams = {
   keyboardShortcuts?: boolean;
   beta?: Object;
   demo?: boolean;
+  networkRecording?: {
+    excludedKeys?: string[];
+    excludedDomains?: string[];
+  };
 };
 
 /**
@@ -56,6 +60,10 @@ export type MarkerSdk = {
   setReporter: (reporter: MarkerReporter) => void;
   unload: () => void;
   on: (eventName: MarkerEventName, listener: () => void) => void;
+  setNetworkRecordingSettings: (settings: {
+    excludedKeys?: string[];
+    excludedDomains?: string[];
+  }) => void;
 };
 
 export type MarkerSdkLoader = {
@@ -88,6 +96,7 @@ const markerSDK: MarkerSdkLoader = {
       'keyboardShortcuts',
       'beta',
       'demo',
+      'networkRecording',
     ];
 
     Object.keys(params).forEach((paramName) => {
@@ -97,7 +106,17 @@ const markerSDK: MarkerSdkLoader = {
     });
 
     // Extract params
-    const { reporter, customData, silent, ssr, extension, keyboardShortcuts, beta, demo } = params;
+    const {
+      reporter,
+      customData,
+      silent,
+      ssr,
+      extension,
+      keyboardShortcuts,
+      beta,
+      demo,
+      networkRecording,
+    } = params;
 
     const project =
       (params as MarkerProjectWidgetParams).project ||
@@ -135,6 +154,10 @@ const markerSDK: MarkerSdkLoader = {
       throw new Error('demo must be a boolean/object');
     }
 
+    if ('networkRecording' in params && typeof networkRecording !== 'object') {
+      throw new Error('networkRecording must be a object');
+    }
+
     if (window.Marker) {
       // Only one Marker.io widget can be loaded at a time
       window.Marker.unload();
@@ -150,6 +173,7 @@ const markerSDK: MarkerSdkLoader = {
       keyboardShortcuts,
       beta,
       demo,
+      networkRecording,
       source: 'browser-sdk',
     };
 
@@ -169,6 +193,7 @@ const markerSDK: MarkerSdkLoader = {
       'isExtensionInstalled',
       'setReporter',
       'setCustomData',
+      'setNetworkRecordingSettings',
       'on',
       'off',
     ]) {
