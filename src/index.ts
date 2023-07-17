@@ -10,6 +10,7 @@ export type MarkerWidgetParams = {
   customData?: Record<string, string>;
   silent?: boolean;
   source?: string;
+  useNativeScreenshot?: boolean;
   ssr?: Record<string, string | number>;
   extension?: boolean | Record<string, string>;
   keyboardShortcuts?: boolean;
@@ -89,6 +90,7 @@ const markerSDK: MarkerSdkLoader = {
       'reporter',
       'customShimUrl',
       'customData',
+      'useNativeScreenshot',
       'silent',
       'source',
       'ssr',
@@ -116,6 +118,7 @@ const markerSDK: MarkerSdkLoader = {
       beta,
       demo,
       networkRecording,
+      useNativeScreenshot,
     } = params;
 
     const project =
@@ -135,7 +138,11 @@ const markerSDK: MarkerSdkLoader = {
     }
 
     if ('ssr' in params && typeof ssr !== 'object') {
-      throw new Error('ssr must be a boolean');
+      throw new Error('ssr must be an object');
+    }
+
+    if ('useNativeScreenshot' in params && typeof useNativeScreenshot !== 'boolean') {
+      throw new Error('useNativeScreenshot must be a boolean');
     }
 
     if ('extension' in params && typeof extension !== 'boolean' && typeof extension !== 'object') {
@@ -171,6 +178,7 @@ const markerSDK: MarkerSdkLoader = {
       ssr,
       extension,
       keyboardShortcuts,
+      useNativeScreenshot,
       beta,
       demo,
       networkRecording,
