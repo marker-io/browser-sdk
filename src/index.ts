@@ -38,7 +38,7 @@ export type MarkerReporter = {
   fullName: string;
 };
 
-type MarkerEventName =
+export type MarkerEventName =
   | 'load'
   | 'loaderror'
   | 'beforeunload'
