@@ -42,7 +42,7 @@
 ## Examples
 
 - [Vue.js](https://github.com/marker-io/browser/tree/master/examples/vue)
-- React _(Coming soon)_
+- [React](<https://github.com/marker-io/browser/tree/master/examples/react>)
 - [Vanilla Javascript](https://github.com/marker-io/browser/tree/master/examples/javascript)
 
 ## Features
