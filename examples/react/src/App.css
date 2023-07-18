@@ -1,0 +1,135 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+body {
+  background: #edf2ff;
+}
+
+#app {
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#app * {
+  box-sizing: border-box;
+}
+
+#app > * + * {
+  margin-top: 20px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.row input {
+  flex-grow: 1;
+  height: 20px;
+}
+
+.row > * + * {
+  margin-left: 10px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.actions > * + * {
+  margin-top: 10px;
+}
+
+.panel {
+  border-radius: 6px;
+  box-shadow: 0 2px 8px -3px #0006;
+  background: white;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel > * + * {
+  margin-top: 10px;
+}
+
+.form {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.form label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form label + input {
+  margin-top: 2px;
+}
+
+.form input + label {
+  margin-top: 10px;
+}
+
+.form input + button {
+  margin-top: 20px;
+}
+
+.event-log {
+  height: 300px;
+}
+
+.code {
+  font-family: monospace;
+}
+
+.error {
+  color: #f03e3e;
+}
