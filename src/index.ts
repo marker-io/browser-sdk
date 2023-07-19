@@ -17,6 +17,7 @@ export type MarkerWidgetParams = {
   beta?: Object;
   demo?: boolean;
   networkRecording?: {
+    enabled?: boolean;
     excludedKeys?: string[];
     excludedDomains?: string[];
   };
