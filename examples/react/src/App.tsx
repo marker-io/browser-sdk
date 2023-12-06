@@ -1,7 +1,7 @@
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
-import { useMarkerIo } from './hooks/maker-io';
+import { useMarkerIo } from './hooks/marker-io';
 import { useState } from 'react';
 
 function App() {
