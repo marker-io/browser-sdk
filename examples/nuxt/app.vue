@@ -7,7 +7,11 @@
 <script setup lang="ts">
 import markerSDK from '@marker.io/browser';
 
-const widget = await markerSDK.loadWidget({
-  project: 'YOUR_SITE_KEY_HERE',
-});
+onMounted(async () => {
+  if (process.client) {
+    await markerSDK.loadWidget({
+      project: 'YOUR_SITE_KEY_HERE',
+    });
+  }
+})
 </script>
