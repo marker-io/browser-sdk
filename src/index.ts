@@ -60,6 +60,7 @@ export type MarkerSdk = {
   isExtensionInstalled: () => Promise<boolean>;
   setCustomData: (customData?: Record<string, string>) => void;
   setReporter: (reporter: MarkerReporter) => void;
+  clearReporter: () => void;
   unload: () => void;
   on: (eventName: MarkerEventName, listener: () => void) => void;
   setNetworkRecordingSettings: (settings: {
@@ -201,6 +202,7 @@ const markerSDK: MarkerSdkLoader = {
       'reload',
       'isExtensionInstalled',
       'setReporter',
+      'clearReporter',
       'setCustomData',
       'setNetworkRecordingSettings',
       'on',

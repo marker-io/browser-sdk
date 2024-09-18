@@ -23,6 +23,7 @@ function App() {
     customDataRaw,
     setCustomDataRaw,
     customDataInvalid,
+    clearReporter,
   } = useMarkerIo();
 
   return (
@@ -56,9 +57,7 @@ function App() {
             <div className="panel">
               <button onClick={() => widget?.show()}>widget.show()</button>
               <button onClick={() => widget?.hide()}>widget.hide()</button>
-              <button onClick={() => void widget?.capture('fullscreen')}>
-                widget.capture()
-              </button>
+              <button onClick={() => void widget?.capture('fullscreen')}>widget.capture()</button>
               <button onClick={unloadMarkerSDK}>widget.unload()</button>
             </div>
 
@@ -79,9 +78,7 @@ function App() {
                 type="email"
                 required
                 value={reporterInfo.email}
-                onChange={(e) =>
-                  setReporterInfo({ ...reporterInfo, email: e.target.value })
-                }
+                onChange={(e) => setReporterInfo({ ...reporterInfo, email: e.target.value })}
               />
 
               <label htmlFor="reporter-fullname">Full name</label>
@@ -89,12 +86,11 @@ function App() {
                 id="reporter-fullname"
                 type="text"
                 value={reporterInfo.fullName}
-                onChange={(e) =>
-                  setReporterInfo({ ...reporterInfo, fullName: e.target.value })
-                }
+                onChange={(e) => setReporterInfo({ ...reporterInfo, fullName: e.target.value })}
               />
 
               <button type="submit">widget.setReporter</button>
+              <button onClick={clearReporter}>widget.clearReporter</button>
             </form>
 
             <form
@@ -113,19 +109,12 @@ function App() {
 
               <button type="submit">widget.setCustomData</button>
 
-              {customDataInvalid && (
-                <div className="error">Invalid JSON format</div>
-              )}
+              {customDataInvalid && <div className="error">Invalid JSON format</div>}
             </form>
 
             <div className="form panel">
               <label htmlFor="event-log">Event log</label>
-              <textarea
-                id="event-log"
-                readOnly
-                value={eventLog}
-                className="event-log"
-              ></textarea>
+              <textarea id="event-log" readOnly value={eventLog} className="event-log"></textarea>
             </div>
           </div>
         )}

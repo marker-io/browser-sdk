@@ -27,6 +27,7 @@
         <input id="reporter-fullname" type="text" v-model="reporterInfo.fullName" />
 
         <button type="submit">widget.setReporter</button>
+        <button @click="clearReporter">widget.clearReporter</button>
       </form>
 
       <form class="form panel" @submit.prevent="updateCustomData">
@@ -34,9 +35,7 @@
 
         <button type="submit">widget.setCustomData</button>
 
-        <div class="error" v-if="customDataInvalid">
-          Invalid JSON format
-        </div>
+        <div class="error" v-if="customDataInvalid">Invalid JSON format</div>
       </form>
 
       <div class="form panel">
@@ -108,6 +107,10 @@ export default {
 
     updateReporterInfo() {
       this.widget.setReporter(this.reporterInfo);
+    },
+
+    clearReporter() {
+      this.widget.clearReporter();
     },
 
     updateCustomData() {
