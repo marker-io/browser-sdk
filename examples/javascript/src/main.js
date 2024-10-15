@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
     loadSDKForm.classList.add('hide');
 
     // Handle unloading properly
-    widget.on('beforeunload', () => {
+    widget.on('pagehide', () => {
       widget = undefined;
 
       sdkLoaded.classList.add('hide');

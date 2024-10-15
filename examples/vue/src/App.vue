@@ -84,7 +84,7 @@ export default {
       const events = [
         'load',
         'loaderror',
-        'beforeunload',
+        'pagehide',
         'show',
         'hide',
         'capture',

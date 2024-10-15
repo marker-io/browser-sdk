@@ -29,7 +29,7 @@ export const useMarkerIo = () => {
     const MarkerEventNames = [
       'load',
       'loaderror',
-      'beforeunload',
+      'pagehide',
       'show',
       'hide',
       'capture',

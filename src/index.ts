@@ -42,7 +42,7 @@ export type MarkerReporter = {
 export type MarkerEventName =
   | 'load'
   | 'loaderror'
-  | 'beforeunload'
+  | 'pagehide'
   | 'show'
   | 'hide'
   | 'capture'

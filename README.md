@@ -169,7 +169,7 @@ Triggers once Marker.io is loaded.
 
 Triggers if an error occurs while loading Marker.io.
 
-### `'beforeunload'`
+### `'pagehide'`
 
 Triggers right before Marker.io unloads.
 
