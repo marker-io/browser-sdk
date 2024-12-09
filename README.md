@@ -145,6 +145,19 @@ widget.setReporter({
 
 </details>
 
+### `widget.clearReporter()`
+
+Clears the current reporter information:
+
+<details>
+  <summary>Example</summary>
+
+```javascript
+widget.clearReporter();
+```
+
+</details>
+
 ### `widget.unload()`
 
 Unloads and cleans up Marker.io SDK and all used resources.

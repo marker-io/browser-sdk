@@ -1,19 +1,14 @@
-import markerSDK, {
-  type MarkerReporter,
-  type MarkerSdk,
-} from '@marker.io/browser';
+import markerSDK, { type MarkerReporter, type MarkerSdk } from '@marker.io/browser';
 import { useMemo, useState } from 'react';
 
 export const useMarkerIo = () => {
   const [widget, setWidget] = useState<MarkerSdk | null>(null);
   const [eventLog, setEventLog] = useState('');
   const [projectId, setProjectId] = useState<string>(
-    import.meta.env.VITE_MARKER_IO_PROJECT_ID as string
+    import.meta.env.VITE_MARKER_IO_PROJECT_ID as string,
   );
 
-  const [customDataObject, setCustomDataObject] = useState<
-    Record<string, string>
-  >({
+  const [customDataObject, setCustomDataObject] = useState<Record<string, string>>({
     product: 'Marker.io',
     available: 'true',
   });
@@ -59,6 +54,10 @@ export const useMarkerIo = () => {
     widget?.setReporter(reporter);
   }
 
+  function clearReporter() {
+    widget?.clearReporter();
+  }
+
   function updateCustomData() {
     try {
       setCustomDataObject(JSON.parse(customDataRaw) as Record<string, string>);
@@ -74,6 +73,7 @@ export const useMarkerIo = () => {
   return {
     loadMarkerSDK,
     unloadMarkerSDK,
+    clearReporter,
     updateReporterInfo,
     updateCustomData,
     setProjectId,
