@@ -42,7 +42,7 @@
 ## Examples
 
 - [Vue.js](https://github.com/marker-io/browser/tree/master/examples/vue)
-- [React](<https://github.com/marker-io/browser/tree/master/examples/react>)
+- [React](https://github.com/marker-io/browser/tree/master/examples/react)
 - [Vanilla Javascript](https://github.com/marker-io/browser/tree/master/examples/javascript)
 
 ## Features
@@ -331,9 +331,9 @@ const widget = await markerSDK.loadWidget({
 
 ## Support
 
-Need help integrating Marker.io with your web app? Feel free to contact us via your Marker.io account.
+Need help integrating Marker.io with your web app? We're here to support you! Feel free to reach out to us via your Marker.io account.
 
-For every bugs, improvements or feature requests related to this SDK, please report a [GitHub issue](https://github.com/marker-io/browser/issues/new).
+For any bugs, improvements, or feature requests related to this SDK, you can contact us at [hello@marker.io](mailto:hello@marker.io).
 
 ## License
 
