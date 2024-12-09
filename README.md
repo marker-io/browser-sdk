@@ -331,9 +331,9 @@ const widget = await markerSDK.loadWidget({
 
 ## Support
 
-Need help integrating Marker.io with your web app? We're here to support you! Feel free to reach out to us via your Marker.io account.
+Need help integrating Marker.io with your web app? We're here to support you! Simply reach out to us through your Marker.io account.
 
-For any bugs, improvements, or feature requests related to this SDK, you can contact us at hello@marker.io
+For any bugs, improvements, or feature requests related to this SDK, please contact us via our [Support Chat](https://help.marker.io/en/).
 
 ## License
 
